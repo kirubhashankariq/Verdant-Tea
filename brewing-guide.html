@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brewing Guide | Verdant Specialty Tea Atelier</title>
+  <meta name="description"
+    content="Master the art of loose leaf steeping. Interactive tea brewing calculator, live digital timer, water chemistry, and Gongfu Cha extraction protocols.">
+
+  <!-- Tea Favicon (SVG) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%231C3D2B' d='M16 2C8 2 2 10 2 18c0 7 5 12 12 12 1 0 2 0 2-2 0-3 2-6 5-7 6-2 9-9 9-15 0-2-6-4-12-4z'/%3E%3Cpath fill='%23B38F4D' d='M16 6c-1 4-4 8-8 10 3 1 7 1 10-1 2-2 3-5 3-8-2-1-3-1-5-1z'/%3E%3C/svg%3E">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            botanical: {
+              50: '#F5F7F4',
+              100: '#E7ECE5',
+              200: '#D0DCD0',
+              700: '#2E4C38',
+              800: '#1C3D2B',
+              900: '#0F2619',
+              950: '#0A1910',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS for strict heading color & flat design -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body
+  class="bg-[#FAF9F5] text-stone-800 dark:bg-[#0B120E] dark:text-stone-200 antialiased overflow-x-hidden selection:bg-stone-900 selection:text-stone-100 dark:selection:bg-stone-100 dark:selection:text-stone-900">
+
+  <!-- ==========================================================================
+       GLOBAL NAVBAR
+       ========================================================================== -->
+  <header
+    class="sticky top-0 z-50 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <a href="index.html" class="flex items-center gap-2.5 xl:gap-3 group focus:outline-none flex-shrink-0"
+          aria-label="Verdant Tea Atelier Home">
+          <div
+            class="w-9 h-9 xl:w-10 xl:h-10 border border-stone-900 dark:border-stone-100 flex items-center justify-center bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex-shrink-0 transition-transform group-hover:scale-95">
+            <svg class="w-5 h-5 xl:w-6 xl:h-6 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
+            </svg>
+          </div>
+          <div class="flex flex-col whitespace-nowrap">
+            <span
+              class="font-serif text-lg xl:text-2xl font-bold tracking-wider xl:tracking-widest uppercase brand-heading">VERDANT</span>
+            <span
+              class="text-[8px] xl:text-[9px] tracking-[0.2em] xl:tracking-[0.25em] font-mono uppercase text-stone-500 dark:text-stone-400 -mt-1">TEA
+              ATELIER &bull; EST. 1892</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-3 xl:gap-7 whitespace-nowrap" aria-label="Primary Navigation">
+          <div class="relative group dropdown-container" id="homeDropdownContainer">
+            <button type="button" id="homeDropdownBtn"
+              class="flex items-center gap-1 text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap focus:outline-none"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 stroke-current transition-transform duration-200 dropdown-chevron" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="homeDropdownMenu"
+              class="absolute top-full left-0 mt-2 w-64 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 shadow-xl py-2 hidden group-hover:block transition-all z-50">
+              <a href="index.html"
+                class="flex flex-col px-4 py-2.5 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors border-b border-stone-100 dark:border-stone-800/50">
+                <span class="text-xs font-semibold uppercase tracking-wider text-stone-900 dark:text-stone-100">Home 1:
+                  Signature Blends</span>
+                <span class="text-[10px] font-mono text-stone-500 dark:text-stone-400 mt-0.5">Classic Atelier Catalog &
+                  Samplers</span>
+              </a>
+              <a href="home-origins.html"
+                class="flex flex-col px-4 py-2.5 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors">
+                <span class="text-xs font-semibold uppercase tracking-wider text-stone-900 dark:text-stone-100">Home 2:
+                  Tea Origins</span>
+                <span class="text-[10px] font-mono text-stone-500 dark:text-stone-400 mt-0.5">Single Terroirs & Mountain
+                  Almanac</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html"
+            class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">
+            About
+          </a>
+          <a href="products.html"
+            class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">
+            Products
+          </a>
+          <a href="brewing-guide.html"
+            class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest font-semibold border-b-2 border-stone-900 dark:border-stone-100 py-1 text-stone-900 dark:text-stone-100 whitespace-nowrap">
+            Brewing Guide
+          </a>
+          <a href="contact.html"
+            class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">
+            Contact
+          </a>
+        </nav>
+
+        <!-- Desktop Utilities -->
+        <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 flex-shrink-0 whitespace-nowrap">
+          <button type="button"
+            class="rtl-toggle-btn w-8 h-8 xl:w-9 xl:h-9 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex-shrink-0"
+            title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </button>
+
+          <button type="button"
+            class="theme-toggle-btn w-8 h-8 xl:w-9 xl:h-9 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex-shrink-0"
+            title="Toggle Dark/Light Mode" aria-label="Toggle color theme">
+            <svg class="theme-sun-icon w-4 h-4 hidden stroke-current text-amber-400" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="theme-moon-icon w-4 h-4 stroke-current text-stone-700 dark:text-stone-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <button type="button"
+            class="open-cart-btn relative w-8 h-8 xl:w-9 xl:h-9 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex-shrink-0"
+            title="View Cart" aria-label="Open Cart Drawer">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span
+              class="cart-counter-badge absolute -top-1.5 -right-1.5 w-4 h-4 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-[10px] font-mono font-bold flex items-center justify-center transform scale-0 transition-transform">0</span>
+          </button>
+
+          <a href="products.html"
+            class="px-3 xl:px-5 py-2 xl:py-2.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-[11px] xl:text-xs font-semibold uppercase tracking-wider xl:tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap flex-shrink-0">
+            Shop Blends
+          </a>
+        </div>
+
+        <!-- Mobile Controls (< 1024px) -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button type="button" class="open-cart-btn relative p-2 border border-stone-300 dark:border-stone-700"
+            aria-label="Open Cart Drawer">
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span
+              class="cart-counter-badge absolute -top-1 -right-1 w-4 h-4 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-[10px] font-mono font-bold flex items-center justify-center transform scale-0 transition-transform">0</span>
+          </button>
+
+          <button id="mobileMenuBtn" type="button"
+            class="p-2 border border-stone-900 dark:border-stone-100 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 focus:outline-none"
+            aria-label="Open Mobile Menu">
+            <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU DRAWER (< 1024px) -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/75 z-[998] hidden transition-opacity"></div>
+  <aside id="mobileMenuDrawer"
+    class="fixed top-0 right-0 w-full sm:w-96 h-full bg-[#FAF9F5] dark:bg-[#0B120E] border-l border-stone-200 dark:border-stone-800 z-[999] transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 sm:p-8 overflow-y-auto"
+    aria-label="Mobile Navigation Drawer">
+    <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex items-center justify-center">
+          <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+              d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+          </svg>
+        </div>
+        <span class="font-serif text-lg font-bold uppercase tracking-wider brand-heading">VERDANT MENU</span>
+      </div>
+      <button id="mobileMenuCloseBtn" type="button"
+        class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800"
+        aria-label="Close Mobile Menu">
+        <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <nav class="flex-1 py-6 flex flex-col space-y-2" aria-label="Mobile Menu Links">
+      <div class="border-b border-stone-200/60 dark:border-stone-800/60 pb-2">
+        <button type="button" id="mobileHomeDropdownBtn"
+          class="w-full flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors focus:outline-none">
+          <span>Home</span>
+          <svg class="w-4 h-4 stroke-current transition-transform duration-200 mobile-dropdown-chevron" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobileHomeDropdownMenu" class="pl-4 pr-2 py-1 space-y-1 hidden">
+          <a href="index.html"
+            class="flex items-center justify-between py-2.5 px-3 text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+            <span>Home 1: Signature Blends</span>
+            <span class="font-mono text-xs">&rarr;</span>
+          </a>
+          <a href="home-origins.html"
+            class="flex items-center justify-between py-2.5 px-3 text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+            <span>Home 2: Tea Origins</span>
+            <span class="font-mono text-xs">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="about.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>About</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="products.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>Products</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="brewing-guide.html"
+        class="flex items-center justify-between py-3 px-4 bg-stone-200/60 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 font-semibold text-sm uppercase tracking-wider border-l-4 border-stone-900 dark:border-stone-100">
+        <span>Brewing Guide</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="contact.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>Contact</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+    </nav>
+
+    <!-- Mobile Drawer Utilities -->
+    <div class="pt-6 border-t border-stone-200 dark:border-stone-800 space-y-4">
+      <div class="grid grid-cols-2 gap-3">
+        <button type="button"
+          class="rtl-toggle-btn w-full h-12 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+          title="Toggle RTL/LTR" aria-label="Toggle text direction">
+          <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </button>
+
+        <button type="button"
+          class="theme-toggle-btn w-full h-12 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+          title="Toggle Dark/Light Mode" aria-label="Toggle color theme">
+          <svg class="theme-sun-icon w-5 h-5 hidden stroke-current text-amber-400" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="theme-moon-icon w-5 h-5 stroke-current text-stone-700 dark:text-stone-300" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+      </div>
+
+      <a href="products.html"
+        class="block w-full text-center py-3.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+        Shop Blends
+      </a>
+    </div>
+  </aside>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/75 z-[998] hidden"></div>
+  <aside id="cartDrawer"
+    class="fixed top-0 right-0 w-full sm:w-[440px] h-full bg-[#FAF9F5] dark:bg-[#0B120E] border-l border-stone-200 dark:border-stone-800 z-[999] transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 sm:p-8"
+    aria-label="Shopping Basket Drawer">
+    <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
+      <div>
+        <h3 class="font-serif text-xl font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Atelier
+          Basket</h3>
+        <p class="text-xs text-stone-500 dark:text-stone-400 font-mono">Curated Loose Leaf Selections</p>
+      </div>
+      <button id="closeCartDrawerBtn" type="button"
+        class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800"
+        aria-label="Close Basket">
+        <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto py-4 divide-y divide-stone-200 dark:border-stone-800">
+    </div>
+    <div class="pt-6 border-t border-stone-200 dark:border-stone-800 space-y-4">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-stone-500 dark:text-stone-400 font-mono">Estimated Subtotal</span>
+        <span id="cartSubtotalAmount"
+          class="font-mono font-bold text-lg text-stone-900 dark:text-stone-100">$0.00</span>
+      </div>
+      <button id="checkoutBtn" type="button"
+        class="w-full py-3.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main>
+
+    <!-- CONTAINER 1: HERO SECTION -->
+    <!-- FIXED: object-cover for Hero to fill screen, high contrast texts centered -->
+    <section id="hero-brewing"
+      class="relative min-h-[55vh] flex items-center justify-center bg-stone-950 overflow-hidden border-b border-stone-200 dark:border-stone-800">
+      <img src="https://i.pinimg.com/1200x/28/c0/be/28c0be977f191151d28d215737c376f6.jpg"
+        alt="Water Flow and Steam in Artisanal Tea Brewing"
+        class="absolute inset-0 w-full h-full object-cover object-center" />
+
+      <!-- Unified Simple Dark Overlay -->
+      <div class="absolute inset-0 bg-stone-900/50 transition-colors"></div>
+
+      <!-- Hero Content -->
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10 w-full">
+        <span
+          class="inline-block px-3 py-1 bg-stone-950/80 text-stone-100 border border-stone-700 text-[11px] font-mono uppercase tracking-widest mb-4 mx-auto">
+          Master Sommelier Protocol &bull; 8th Century to Modern Science
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight mb-4 text-stone-50 mx-auto">
+          The Sacred Ritual of Water & Leaf
+        </h1>
+        <p class="max-w-xl mx-auto text-sm sm:text-base text-stone-200 font-normal leading-relaxed mb-8 text-center">
+          "Water is the mother of tea; the teapot is its father; and fire is its teacher." &mdash; Lu Yu, The Classic of
+          Tea (760 CE)
+        </p>
+        <div class="inline-flex gap-4 mx-auto">
+          <a href="#brewingCalculatorSection"
+            class="px-8 py-4 bg-stone-50 text-stone-900 text-xs font-semibold uppercase tracking-widest hover:bg-stone-200 transition-colors">
+            Launch Steeping Calculator
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTAINER 2: UNIVERSAL STEEPING PARAMETERS & INTERACTIVE LIVE BREWING TIMER -->
+    <section id="brewingCalculatorSection"
+      class="py-20 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Interactive
+            Laboratory</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-3">Universal Steeping Parameters & Live Timer</h2>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400">
+            Select a varietal below to calibrate ideal water temperature, leaf-to-water ratio, and launch our live
+            digital countdown timer with sound chime.
+          </p>
+        </div>
+
+        <!-- Varietal Selector Bar -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-10" role="tablist">
+          <button type="button" data-tea="gyokuro"
+            class="tea-varietal-btn px-4 py-2 text-xs font-mono uppercase bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 font-semibold border border-stone-900 dark:border-stone-100">
+            Gyokuro (60°C)
+          </button>
+          <button type="button" data-tea="sencha"
+            class="tea-varietal-btn px-4 py-2 text-xs font-mono uppercase bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300 border border-stone-300 dark:border-stone-700 hover:bg-stone-200">
+            Sencha (75°C)
+          </button>
+          <button type="button" data-tea="dahongpao"
+            class="tea-varietal-btn px-4 py-2 text-xs font-mono uppercase bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300 border border-stone-300 dark:border-stone-700 hover:bg-stone-200">
+            Da Hong Pao (95°C)
+          </button>
+          <button type="button" data-tea="silverneedle"
+            class="tea-varietal-btn px-4 py-2 text-xs font-mono uppercase bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300 border border-stone-300 dark:border-stone-700 hover:bg-stone-200">
+            Silver Needle (80°C)
+          </button>
+          <button type="button" data-tea="darjeeling"
+            class="tea-varietal-btn px-4 py-2 text-xs font-mono uppercase bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300 border border-stone-300 dark:border-stone-700 hover:bg-stone-200">
+            Darjeeling First Flush (90°C)
+          </button>
+          <button type="button" data-tea="chamomile"
+            class="tea-varietal-btn px-4 py-2 text-xs font-mono uppercase bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300 border border-stone-300 dark:border-stone-700 hover:bg-stone-200">
+            Egyptian Chamomile (100°C)
+          </button>
+        </div>
+
+        <!-- Calculator & Live Timer Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- Parameters Card (7 cols) -->
+          <div
+            class="lg:col-span-7 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 sm:p-8">
+            <div class="flex items-center justify-between pb-4 border-b border-stone-200 dark:border-stone-800 mb-6">
+              <div>
+                <span id="paramTeaType"
+                  class="text-xs font-mono uppercase text-emerald-700 dark:text-emerald-400 font-semibold block">Shaded
+                  Green Tea</span>
+                <h3 id="paramTeaTitle" class="text-2xl font-serif font-bold">Uji Ceremonial Gyokuro</h3>
+              </div>
+
+              <!-- Temperature Unit Toggle -->
+              <div class="flex items-center border border-stone-300 dark:border-stone-700">
+                <button id="tempUnitC" type="button"
+                  class="px-2.5 py-1 text-xs font-mono font-bold bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900">°C</button>
+                <button id="tempUnitF" type="button"
+                  class="px-2.5 py-1 text-xs font-mono text-stone-700 dark:text-stone-300 bg-stone-200 dark:bg-stone-700">°F</button>
+              </div>
+            </div>
+
+            <!-- Parameters Matrix -->
+            <div class="grid grid-cols-3 gap-4 mb-6 text-center font-mono text-xs">
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E]">
+                <span class="text-stone-500 dark:text-stone-400 block mb-1">Water Temp</span>
+                <span id="paramTeaTemp" class="text-xl font-bold text-stone-900 dark:text-stone-100">60°C</span>
+              </div>
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E]">
+                <span class="text-stone-500 dark:text-stone-400 block mb-1">Target Steep</span>
+                <span id="paramTeaTime" class="text-xl font-bold text-stone-900 dark:text-stone-100">1m 30s</span>
+              </div>
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E]">
+                <span class="text-stone-500 dark:text-stone-400 block mb-1">Yield Steeps</span>
+                <span id="paramTeaInfusions" class="text-base font-bold text-stone-900 dark:text-stone-100">3-4
+                  steeps</span>
+              </div>
+            </div>
+
+            <!-- Interactive Water Slider -->
+            <div class="p-4 border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E] mb-6">
+              <div class="flex justify-between text-xs font-mono mb-2">
+                <span class="text-stone-500 dark:text-stone-400">Target Water Volume:</span>
+                <span id="waterVolumeDisplay" class="font-bold text-stone-900 dark:text-stone-100">150 ml</span>
+              </div>
+              <input id="waterVolumeSlider" type="range" min="80" max="600" step="20" value="150"
+                class="w-full accent-stone-900 dark:accent-stone-100 cursor-pointer" />
+              <div
+                class="flex justify-between items-center mt-3 pt-3 border-t border-stone-200 dark:border-stone-800 text-xs">
+                <span class="font-mono text-stone-500 dark:text-stone-400">Recommended Leaf Weight:</span>
+                <span id="leafWeightDisplay"
+                  class="font-mono font-bold text-emerald-700 dark:text-emerald-400 text-sm">7.5 g</span>
+              </div>
+            </div>
+
+            <!-- Steeping Protocol Steps -->
+            <div>
+              <span
+                class="text-xs font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">Steeping
+                Procedure:</span>
+              <ul id="paramTeaSteps" class="space-y-2">
+                <!-- Dynamically populated via js/brewing.js -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Live Digital Countdown Timer (5 cols) -->
+          <div
+            class="lg:col-span-5 bg-stone-900 text-stone-100 p-6 sm:p-8 border border-stone-800 flex flex-col justify-between h-full">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-stone-800 mb-6">
+                <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Laboratory Timer</span>
+                <span class="text-[10px] font-mono text-stone-400">Chime Synthesizer Active</span>
+              </div>
+
+              <!-- Big Digital Readout -->
+              <div class="py-8 text-center bg-stone-950 border border-stone-800 mb-6">
+                <span id="digitalTimerDisplay"
+                  class="font-mono text-6xl sm:text-7xl font-bold tracking-widest text-stone-100 block">
+                  01:30
+                </span>
+                <span class="text-[10px] font-mono text-stone-400 uppercase tracking-widest mt-2 block">Minutes :
+                  Seconds</span>
+              </div>
+
+              <!-- Flat Progress Bar -->
+              <div class="w-full bg-stone-800 h-2 mb-8">
+                <div id="timerProgressBar" class="bg-emerald-500 h-2 w-0 transition-all duration-300"></div>
+              </div>
+            </div>
+
+            <!-- Timer Action Buttons -->
+            <div class="space-y-3 mt-auto">
+              <div class="grid grid-cols-2 gap-3">
+                <button id="startTimerBtn" type="button"
+                  class="py-3 bg-stone-100 text-stone-900 text-xs font-mono font-bold uppercase tracking-wider hover:bg-stone-200 transition-colors">
+                  &blacktriangleright; Start Steep
+                </button>
+                <button id="pauseTimerBtn" type="button"
+                  class="py-3 border border-stone-700 text-stone-300 text-xs font-mono uppercase tracking-wider hover:bg-stone-800 transition-colors opacity-50 cursor-not-allowed">
+                  &block; Pause
+                </button>
+              </div>
+              <button id="resetTimerBtn" type="button"
+                class="w-full py-2.5 border border-stone-800 text-stone-400 hover:text-stone-200 text-xs font-mono uppercase tracking-wider transition-colors">
+                Reset Timer
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 3: VESSEL SELECTION & TEAWARE MASTERY -->
+    <section id="vessel-selection-mastery"
+      class="py-20 bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <span
+              class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Vessel
+              Science</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold">The Anatomy of the Brewing Vessel</h2>
+          </div>
+          <p class="max-w-md text-xs sm:text-sm text-stone-600 dark:text-stone-400">
+            A tea vessel is not neutral. Its clay porosity, wall thickness, and lid fit dictate thermal decay and taste
+            profile.
+          </p>
+        </div>
+
+        <!-- FIXED: h-full grid flex alignment to eliminate zig-zag -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+          <div
+            class="bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 p-6 flex flex-col h-full">
+            <div class="flex-1 flex flex-col">
+              <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">01 /
+                PORCELAIN</span>
+              <h3 class="text-xl font-serif font-bold mb-2 shrink-0">The Gaiwan (Bowl with Lid)</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Vitrified non-porous surface. Absorbs zero essential oils, providing 100% objective clarity. Best suited
+                for high-aroma white teas, green teas, and sensory cupping.
+              </p>
+            </div>
+            <div
+              class="pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-500 dark:text-stone-400 mt-auto shrink-0">
+              Thermal Retention: Medium &bull; Porosity: 0%
+            </div>
+          </div>
+
+          <div
+            class="bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 p-6 flex flex-col h-full">
+            <div class="flex-1 flex flex-col">
+              <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">02 /
+                PURPLE STONEWARE</span>
+              <h3 class="text-xl font-serif font-bold mb-2 shrink-0">Banko-Ware Kyusu</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Fired in reduction kilns with high iron content. The iron interacts with astringent catechins to soften
+                bitter notes and elevate savory l-theanine. Perfect for Sencha and Gyokuro.
+              </p>
+            </div>
+            <div
+              class="pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-500 dark:text-stone-400 mt-auto shrink-0">
+              Thermal Retention: High &bull; Porosity: 3-5%
+            </div>
+          </div>
+
+          <div
+            class="bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 p-6 flex flex-col h-full">
+            <div class="flex-1 flex flex-col">
+              <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">03 /
+                ZISHA CLAY</span>
+              <h3 class="text-xl font-serif font-bold mb-2 shrink-0">Yixing Purple Clay Pot</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Double-pore microstructure breathes while retaining intense heat. Over decades, the pot absorbs tea oils
+                and develops a gleaming luster. Dedicated to a single tea class (Pu-erh or Rock Oolong).
+              </p>
+            </div>
+            <div
+              class="pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-500 dark:text-stone-400 mt-auto shrink-0">
+              Thermal Retention: Exceptional &bull; Porosity: 8-12%
+            </div>
+          </div>
+
+          <div
+            class="bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 p-6 flex flex-col h-full">
+            <div class="flex-1 flex flex-col">
+              <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">04 /
+                BOROSILICATE</span>
+              <h3 class="text-xl font-serif font-bold mb-2 shrink-0">Glass Cha Hai</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Allows visual appreciation of leaf unfurling and exact liquor clarity. Used between teapot and cups to
+                ensure every guest receives identical liquor density.
+              </p>
+            </div>
+            <div
+              class="pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-500 dark:text-stone-400 mt-auto shrink-0">
+              Thermal Retention: Low &bull; Neutral Visualizer
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 4: WATER SCIENCE & TEMPERATURE PROTOCOL -->
+    <section id="water-science-protocol"
+      class="py-20 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span
+              class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Hydro-Chemistry</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-6">The Hidden Soul of Water</h2>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              Tea is 99.4% water. Brewing with chlorinated or high-mineral hard tap water will instantly flatten the
+              delicate top notes of first-flush harvests.
+            </p>
+
+            <div class="space-y-4 font-mono text-xs mb-8">
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+                <span class="font-bold text-stone-900 dark:text-stone-100 block mb-1">TDS Guideline: 30 – 50 ppm</span>
+                <span class="text-stone-500 dark:text-stone-400">Total Dissolved Solids above 100 ppm dulls sweetness;
+                  distilled 0 ppm water tastes flat.</span>
+              </div>
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+                <span class="font-bold text-stone-900 dark:text-stone-100 block mb-1">pH Balance: 6.8 – 7.2
+                  (Neutral)</span>
+                <span class="text-stone-500 dark:text-stone-400">Alkaline water darkens liquor and precipitates tea
+                  polyphenols.</span>
+              </div>
+            </div>
+
+            <h3 class="text-lg font-serif font-bold mb-3">Ancient Three Boil Stages (Lu Yu):</h3>
+            <ul class="space-y-2 text-xs font-mono text-stone-600 dark:text-stone-400">
+              <li>&bull; <strong class="text-stone-900 dark:text-stone-100">Shrimp Eyes (75°C):</strong> Gentle quiet
+                pinhead bubbles on kettle floor. Ideal for Gyokuro & Silver Needle.</li>
+              <li>&bull; <strong class="text-stone-900 dark:text-stone-100">Crab Eyes (85°C):</strong> Rising bead
+                bubbles clinging to walls. Ideal for Sencha & Darjeeling.</li>
+              <li>&bull; <strong class="text-stone-900 dark:text-stone-100">Raging Torrent (98°C+):</strong> Billowing
+                surface waves. Ideal for Wuyi Rock Oolongs & Pu-erh.</li>
+            </ul>
+          </div>
+
+          <div class="relative aspect-square border border-stone-200 dark:border-stone-800">
+            <!-- FIXED: Enforced object-cover -->
+            <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=900&q=80"
+              alt="Clear Boiling Water Bubbles in Kettle" class="w-full h-full object-cover" />
+            <div class="absolute bottom-6 left-6 right-6 p-4 bg-stone-950/85 text-stone-100 border border-stone-700">
+              <span class="text-xs font-mono uppercase text-emerald-400 block mb-1">Sommelier Tip</span>
+              <p class="text-xs font-serif italic">"Never re-boil stale water. Re-boiling depletes dissolved oxygen,
+                choking the aroma before extraction begins."</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 5: GONGFU CHA VS. WESTERN INFUSION COMPARISON -->
+    <section id="gongfu-vs-western"
+      class="py-20 bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Methodology
+            Contrast</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-4">Two Philosophies of Extraction</h2>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400">
+            Compare the fast multi-steep Gongfu Cha ceremony with the comforting volume of traditional Western teapot
+            infusion.
+          </p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div
+          class="table-responsive-container border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E] mb-12">
+          <table class="w-full text-left text-xs font-mono border-collapse">
+            <thead>
+              <tr class="border-b border-stone-300 dark:border-stone-700 bg-stone-200/50 dark:bg-stone-800/50">
+                <th class="p-4 font-bold uppercase text-stone-900 dark:text-stone-100">Parameter</th>
+                <th class="p-4 font-bold uppercase text-emerald-700 dark:text-emerald-400">Gongfu Cha Method</th>
+                <th class="p-4 font-bold uppercase text-stone-700 dark:text-stone-300">Western Infusion Method</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 dark:divide-stone-800">
+              <tr>
+                <td class="p-4 font-semibold">Leaf to Water Ratio</td>
+                <td class="p-4">High Leaf Density (5g – 8g per 120ml)</td>
+                <td class="p-4">Low Leaf Density (2g – 3g per 250ml)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold">Steeping Duration</td>
+                <td class="p-4">Flash Steeps (15s to 35s per round)</td>
+                <td class="p-4">Single Long Steep (3 to 5 minutes)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold">Infusion Count</td>
+                <td class="p-4">6 to 12 consecutive steeps</td>
+                <td class="p-4">1 to 2 steeps maximum</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold">Flavor Trajectory</td>
+                <td class="p-4">Evolving symphony where each cup differs</td>
+                <td class="p-4">Homogeneous single-layer cup</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold">Vessels Required</td>
+                <td class="p-4">Gaiwan / Yixing, Fairness Pitcher, Tasting Cups</td>
+                <td class="p-4">Porcelain Teapot, Mesh Strainer, Mug</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold">Best Suited Teas</td>
+                <td class="p-4">Wuyi Rock Oolong, Dan Cong, Pu-erh, Gyokuro</td>
+                <td class="p-4">Darjeeling Black, English Breakfast, Herbal Blends</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="relative w-full h-72 border border-stone-200 dark:border-stone-800 overflow-hidden">
+          <!-- FIXED: Enforced object-cover -->
+          <img src="https://images.unsplash.com/photo-1568644396922-5c3bfae12521?auto=format&fit=crop&w=1600&q=80"
+            alt="Traditional Gongfu Cha Tea Ceremony Board" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-stone-950/60 flex items-center justify-center p-6 text-center">
+            <p class="max-w-xl font-serif text-lg sm:text-xl text-stone-100 italic">
+              "Gongfu means 'skill through practice'. It is not about strict dogma, but about training your senses to
+              recognize when the leaf has revealed its soul."
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 6: COLD BREW & ICED INFUSION MASTERCLASS -->
+    <section id="cold-brew-mizudashi"
+      class="py-20 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative aspect-[4/3] border border-stone-200 dark:border-stone-800">
+            <!-- FIXED: Enforced object-cover -->
+            <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=900&q=80"
+              alt="Chilled Glass Carafe with Cold Brew Iced Tea" class="w-full h-full object-cover" />
+            <div class="absolute top-4 left-4 p-3 bg-stone-950/80 text-stone-100 text-xs font-mono">
+              <span class="text-emerald-400 block font-bold">12-HOUR MIZUDASHI EXTRACTION</span>
+              <span>Near-Zero Tannin &bull; Peak L-Theanine</span>
+            </div>
+          </div>
+
+          <div>
+            <span
+              class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Summer
+              Chilled Extraction</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-6">The Art of Mizudashi</h2>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              When tea leaves are extracted with chilled water over 8 to 12 hours, bitter tannins and astringent
+              catechins do not dissolve. Instead, sweet amino acids and volatile fruity aromatics are gently released.
+            </p>
+
+            <div class="space-y-4 font-mono text-xs mb-8">
+              <div
+                class="p-4 border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 flex items-center justify-between">
+                <span>1. Measure Ratio:</span>
+                <span class="font-bold text-stone-900 dark:text-stone-100">10g whole loose leaf per 1,000ml chilled
+                  water</span>
+              </div>
+              <div
+                class="p-4 border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 flex items-center justify-between">
+                <span>2. Water Quality:</span>
+                <span class="font-bold text-stone-900 dark:text-stone-100">Cold spring water or ice cubes placed on dry
+                  leaves</span>
+              </div>
+              <div
+                class="p-4 border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 flex items-center justify-between">
+                <span>3. Chill Duration:</span>
+                <span class="font-bold text-stone-900 dark:text-stone-100">Refrigerate sealed bottle at 4°C for 8 to 12
+                  hours</span>
+              </div>
+              <div
+                class="p-4 border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 flex items-center justify-between">
+                <span>4. Decant & Strain:</span>
+                <span class="font-bold text-stone-900 dark:text-stone-100">Strain completely; keeps fresh in glass
+                  bottle for 4 days</span>
+              </div>
+            </div>
+
+            <a href="products.html"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+              Browse Best Cold-Brew Varietals &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER 
+       ========================================================================== -->
+  <footer class="bg-[#FAF9F5] dark:bg-[#0B120E] border-t border-stone-200 dark:border-stone-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3 group focus:outline-none"
+            aria-label="Return to Verdant Home">
+            <div
+              class="w-10 h-10 border border-stone-900 dark:border-stone-100 flex items-center justify-center bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex-shrink-0">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                  d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-2xl font-bold tracking-widest uppercase brand-heading">VERDANT</span>
+              <span
+                class="text-[9px] tracking-[0.25em] font-mono uppercase text-stone-500 dark:text-stone-400 -mt-1">SPECIALTY
+                TEA ATELIER</span>
+            </div>
+          </a>
+
+          <p class="text-xs text-stone-600 dark:text-stone-400 max-w-sm leading-relaxed">
+            Preserving single-origin terroir, ancestral agro-forestry, and the meditative mindfulness of the loose leaf
+            tea ceremony since 1892.
+          </p>
+
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Follow on X (Twitter)" aria-label="X (formerly Twitter)">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Follow on Instagram" aria-label="Instagram">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Follow on LinkedIn" aria-label="LinkedIn">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Watch on YouTube" aria-label="YouTube">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">The
+            Atelier</span>
+          <ul class="space-y-2.5 text-xs text-stone-600 dark:text-stone-400 font-medium">
+            <li><a href="index.html" class="hover:underline">Home - Signature Blends</a></li>
+            <li><a href="home-origins.html" class="hover:underline">Home - Tea Origins</a></li>
+            <li><a href="about.html" class="hover:underline">About Atelier Heritage</a></li>
+            <li><a href="products.html" class="hover:underline">Products Catalog</a></li>
+            <li><a href="brewing-guide.html" class="hover:underline">Interactive Brewing Guide</a></li>
+            <li><a href="contact.html" class="hover:underline">Contact & Salon Map</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">Terroir
+            Vault</span>
+          <ul class="space-y-2.5 text-xs text-stone-600 dark:text-stone-400 font-medium">
+            <li><span class="text-stone-800 dark:text-stone-200">Uji, Kyoto</span> (Gyokuro & Matcha)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Wuyi Mountains</span> (Rock Oolongs)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Darjeeling</span> (Castleton First Flush)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Fuding, Fujian</span> (Silver Needle)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Menghai, Yunnan</span> (Aged Pu-erh)</li>
+          </ul>
+        </div>
+
+        <div>
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">Flagship
+            Salons</span>
+          <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-3">
+            <strong class="text-stone-800 dark:text-stone-200">Kyoto Atelier:</strong><br>
+            428 Sanjo-dori, Nakagyo-ku, Kyoto 604-8004
+          </p>
+          <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+            <strong class="text-stone-800 dark:text-stone-200">London Sanctuary:</strong><br>
+            18 Floral St, Covent Garden, London WC2E 9DS
+          </p>
+        </div>
+
+      </div>
+
+      <div
+        class="pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 dark:text-stone-400 font-mono gap-4">
+        <div>&copy; 2026 Verdant Specialty Tea Atelier. All Rights Reserved.</div>
+        <div class="flex items-center gap-6">
+          <span>Zero Gradients &bull; Pure Minimalist Flat Design</span>
+          <span>Deployable on Vercel</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/brewing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Verdant Specialty Tea Atelier</title>
+  <meta name="description"
+    content="Contact the Verdant Tea Atelier concierge. Reserve private ceremonial tastings, inquire about bespoke blending, or visit our Kyoto and London salons.">
+
+  <!-- Tea Favicon (SVG) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%231C3D2B' d='M16 2C8 2 2 10 2 18c0 7 5 12 12 12 1 0 2 0 2-2 0-3 2-6 5-7 6-2 9-9 9-15 0-2-6-4-12-4z'/%3E%3Cpath fill='%23B38F4D' d='M16 6c-1 4-4 8-8 10 3 1 7 1 10-1 2-2 3-5 3-8-2-1-3-1-5-1z'/%3E%3C/svg%3E">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            botanical: {
+              50: '#F5F7F4',
+              100: '#E7ECE5',
+              200: '#D0DCD0',
+              700: '#2E4C38',
+              800: '#1C3D2B',
+              900: '#0F2619',
+              950: '#0A1910',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS for strict heading color & flat design -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body
+  class="bg-[#FAF9F5] text-stone-800 dark:bg-[#0B120E] dark:text-stone-200 antialiased overflow-x-hidden selection:bg-stone-900 selection:text-stone-100 dark:selection:bg-stone-100 dark:selection:text-stone-900">
+
+  <!-- ==========================================================================
+       GLOBAL NAVBAR
+       ========================================================================== -->
+  <header
+    class="sticky top-0 z-50 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <a href="index.html" class="flex items-center gap-3 group focus:outline-none flex-shrink-0"
+          aria-label="Verdant Tea Atelier Home">
+          <div
+            class="w-10 h-10 border border-stone-900 dark:border-stone-100 flex items-center justify-center bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex-shrink-0 transition-transform group-hover:scale-95">
+            <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
+            </svg>
+          </div>
+          <div class="flex flex-col whitespace-nowrap">
+            <span
+              class="font-serif text-xl sm:text-2xl font-bold tracking-widest uppercase brand-heading">VERDANT</span>
+            <span class="text-[9px] tracking-[0.25em] font-mono uppercase text-stone-500 dark:text-stone-400 -mt-1">TEA
+              ATELIER &bull; EST. 1892</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-4 xl:gap-7 whitespace-nowrap" aria-label="Primary Navigation">
+          <div class="relative group" id="homeDropdownContainer">
+            <button type="button" id="homeDropdownBtn"
+              class="flex items-center gap-1.5 text-xs uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap focus:outline-none"
+              aria-expanded="false" aria-haspopup="true">
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 stroke-current transition-transform duration-200 dropdown-chevron" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="homeDropdownMenu"
+              class="absolute top-full left-0 mt-2 w-56 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 shadow-none py-2 z-50 hidden">
+              <a href="index.html"
+                class="block px-4 py-2.5 text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+                Home 1: Signature Blends
+              </a>
+              <a href="home-origins.html"
+                class="block px-4 py-2.5 text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+                Home 2: Tea Origins
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html"
+            class="text-xs uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">
+            About
+          </a>
+          <a href="products.html"
+            class="text-xs uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">
+            Products
+          </a>
+          <a href="brewing-guide.html"
+            class="text-xs uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">
+            Brewing Guide
+          </a>
+          <a href="contact.html"
+            class="text-xs uppercase tracking-widest font-semibold border-b-2 border-stone-900 dark:border-stone-100 py-1 text-stone-900 dark:text-stone-100 whitespace-nowrap">
+            Contact
+          </a>
+        </nav>
+
+        <!-- Desktop Utilities -->
+        <div class="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0 whitespace-nowrap">
+          <button type="button"
+            class="rtl-toggle-btn w-9 h-9 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex-shrink-0"
+            title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </button>
+
+          <button type="button"
+            class="theme-toggle-btn w-9 h-9 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex-shrink-0"
+            title="Toggle Dark/Light Mode" aria-label="Toggle color theme">
+            <svg class="theme-sun-icon w-4 h-4 hidden stroke-current text-amber-400" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="theme-moon-icon w-4 h-4 stroke-current text-stone-700 dark:text-stone-300" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <button type="button"
+            class="open-cart-btn relative w-9 h-9 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors flex-shrink-0"
+            title="View Cart" aria-label="Open Cart Drawer">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span
+              class="cart-counter-badge absolute -top-1.5 -right-1.5 w-4 h-4 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-[10px] font-mono font-bold flex items-center justify-center transform scale-0 transition-transform">0</span>
+          </button>
+
+          <a href="products.html"
+            class="px-4 xl:px-5 py-2.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap flex-shrink-0">
+            Shop Blends
+          </a>
+        </div>
+
+        <!-- Mobile Controls (< 1024px) -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button type="button" class="open-cart-btn relative p-2 border border-stone-300 dark:border-stone-700"
+            aria-label="Open Cart Drawer">
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span
+              class="cart-counter-badge absolute -top-1 -right-1 w-4 h-4 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-[10px] font-mono font-bold flex items-center justify-center transform scale-0 transition-transform">0</span>
+          </button>
+
+          <button id="mobileMenuBtn" type="button"
+            class="p-2 border border-stone-900 dark:border-stone-100 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 focus:outline-none"
+            aria-label="Open Mobile Menu">
+            <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU DRAWER (< 1024px) -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/75 z-[998] hidden transition-opacity"></div>
+  <aside id="mobileMenuDrawer"
+    class="fixed top-0 right-0 w-full sm:w-96 h-full bg-[#FAF9F5] dark:bg-[#0B120E] border-l border-stone-200 dark:border-stone-800 z-[999] transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 sm:p-8 overflow-y-auto"
+    aria-label="Mobile Navigation Drawer">
+    <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex items-center justify-center">
+          <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+              d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+          </svg>
+        </div>
+        <span class="font-serif text-lg font-bold uppercase tracking-wider brand-heading">VERDANT MENU</span>
+      </div>
+      <button id="mobileMenuCloseBtn" type="button"
+        class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800"
+        aria-label="Close Mobile Menu">
+        <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <nav class="flex-1 py-6 flex flex-col space-y-2" aria-label="Mobile Menu Links">
+      <div class="border-b border-stone-200/60 dark:border-stone-800/60 pb-2">
+        <button type="button" id="mobileHomeDropdownBtn"
+          class="w-full flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors focus:outline-none">
+          <span>Home</span>
+          <svg class="w-4 h-4 stroke-current transition-transform duration-200 mobile-dropdown-chevron" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobileHomeDropdownMenu" class="pl-4 pr-2 py-1 space-y-1 hidden">
+          <a href="index.html"
+            class="flex items-center justify-between py-2.5 px-3 text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+            <span>Home 1: Signature Blends</span>
+            <span class="font-mono text-xs">&rarr;</span>
+          </a>
+          <a href="home-origins.html"
+            class="flex items-center justify-between py-2.5 px-3 text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+            <span>Home 2: Tea Origins</span>
+            <span class="font-mono text-xs">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="about.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>About</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="products.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>Products</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="brewing-guide.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>Brewing Guide</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="contact.html"
+        class="flex items-center justify-between py-3 px-4 bg-stone-200/60 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 font-semibold text-sm uppercase tracking-wider border-l-4 border-stone-900 dark:border-stone-100">
+        <span>Contact</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+    </nav>
+
+    <div class="pt-6 border-t border-stone-200 dark:border-stone-800 space-y-4">
+      <div class="grid grid-cols-2 gap-3">
+        <button type="button"
+          class="rtl-toggle-btn w-full h-12 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+          title="Toggle RTL/LTR" aria-label="Toggle text direction">
+          <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </button>
+
+        <button type="button"
+          class="theme-toggle-btn w-full h-12 flex items-center justify-center border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+          title="Toggle Dark/Light Mode" aria-label="Toggle color theme">
+          <svg class="theme-sun-icon w-5 h-5 hidden stroke-current text-amber-400" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="theme-moon-icon w-5 h-5 stroke-current text-stone-700 dark:text-stone-300" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+      </div>
+
+      <a href="products.html"
+        class="block w-full text-center py-3.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+        Shop Blends
+      </a>
+    </div>
+  </aside>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/75 z-[998] hidden"></div>
+  <aside id="cartDrawer"
+    class="fixed top-0 right-0 w-full sm:w-[440px] h-full bg-[#FAF9F5] dark:bg-[#0B120E] border-l border-stone-200 dark:border-stone-800 z-[999] transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 sm:p-8"
+    aria-label="Shopping Basket Drawer">
+    <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
+      <div>
+        <h3 class="font-serif text-xl font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">Atelier
+          Basket</h3>
+        <p class="text-xs text-stone-500 dark:text-stone-400 font-mono">Curated Loose Leaf Selections</p>
+      </div>
+      <button id="closeCartDrawerBtn" type="button"
+        class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800"
+        aria-label="Close Basket">
+        <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto py-4 divide-y divide-stone-200 dark:border-stone-800">
+    </div>
+    <div class="pt-6 border-t border-stone-200 dark:border-stone-800 space-y-4">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-stone-500 dark:text-stone-400 font-mono">Estimated Subtotal</span>
+        <span id="cartSubtotalAmount"
+          class="font-mono font-bold text-lg text-stone-900 dark:text-stone-100">$0.00</span>
+      </div>
+      <button id="checkoutBtn" type="button"
+        class="w-full py-3.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- SUBMISSION SUCCESS MODAL -->
+  <div id="contactSuccessBackdrop" class="fixed inset-0 bg-black/80 z-[998] hidden"></div>
+  <div id="contactSuccessModal" class="fixed inset-0 z-[999] hidden flex items-center justify-center p-4 sm:p-6"
+    role="dialog" aria-modal="true">
+    <div
+      class="bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 max-w-md w-full p-8 text-center relative shadow-2xl">
+      <div
+        class="w-12 h-12 bg-emerald-800 text-stone-100 flex items-center justify-center mx-auto mb-4 font-mono font-bold text-xl">
+        &check;
+      </div>
+      <h3 class="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-2">Inquiry Transmitted</h3>
+      <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">
+        Your dossier has been registered directly with our Head Sommelier. You will receive a bespoke reply within 24
+        hours.
+      </p>
+
+      <!-- Injected details -->
+      <div id="contactModalDetails"></div>
+
+      <button id="closeContactModalBtn" type="button"
+        class="mt-4 w-full py-3 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+        Acknowledge & Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main>
+
+    <!-- CONTAINER 1: HERO SECTION -->
+    <!-- FIXED: object-cover for Hero to fill screen, unified dark overlay, centered high-contrast texts -->
+    <section id="hero-contact"
+      class="relative min-h-[50vh] flex items-center justify-center bg-stone-950 overflow-hidden border-b border-stone-200 dark:border-stone-800">
+      <img src="https://i.pinimg.com/236x/d3/d5/dc/d3d5dc8f1f70c6c4f53106b71369a7e5.jpg"
+        alt="Warm Serene Atmosphere of Specialty Tea Atelier"
+        class="absolute inset-0 w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-stone-900/50 transition-colors"></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10 w-full">
+        <span
+          class="inline-block px-3 py-1 bg-stone-950/80 text-stone-100 border border-stone-700 text-[11px] font-mono uppercase tracking-widest mb-4 mx-auto">
+          Concierge Services &bull; Direct Sommelier Contact
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight mb-4 text-stone-50 mx-auto">
+          Sanctuary Concierge & Atelier Inquiries
+        </h1>
+        <p class="max-w-xl mx-auto text-sm sm:text-base text-stone-200 font-normal leading-relaxed mb-6 text-center">
+          Whether you seek private ceremonial tasting appointments, bespoke wedding blends, or restaurant cellar
+          consultation, our sommeliers are at your disposal.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-stone-200 mx-auto">
+          <span>&bull; Direct Concierge: +81 (75) 589-2144</span>
+          <span>&bull; Sommelier Desk: concierge@verdanttea.com</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTAINER 2: CONCIERGE ATELIER CONTACT FORM -->
+    <section id="concierge-form-section"
+      class="py-20 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+          <!-- Information Sidebar (5 cols) -->
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <span
+                class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Direct
+                Correspondence</span>
+              <h2 class="text-3xl font-serif font-bold mb-4">Bespoke Blending & Private Inquiries</h2>
+              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+                Please complete the registry below. Note our strict field validations: Name inputs reject numeric
+                digits, Phone inputs reject letters, and Email addresses require verified formatting.
+              </p>
+            </div>
+
+            <div
+              class="p-6 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-4 text-xs font-mono">
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-6 h-6 flex items-center justify-center bg-stone-900 text-stone-100 dark:bg-stone-100 dark:text-stone-900 font-bold">&bull;</span>
+                <div>
+                  <strong class="text-stone-900 dark:text-stone-100 block">Atelier Response Window</strong>
+                  <span class="text-stone-500 dark:text-stone-400">Guaranteed sommelier response within 24 business
+                    hours</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-6 h-6 flex items-center justify-center bg-stone-900 text-stone-100 dark:bg-stone-100 dark:text-stone-900 font-bold">&bull;</span>
+                <div>
+                  <strong class="text-stone-900 dark:text-stone-100 block">Private Cellar Access</strong>
+                  <span class="text-stone-500 dark:text-stone-400">Special allocations for rare vintage 1990s Pu-erh
+                    cakes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative aspect-[4/3] border border-stone-200 dark:border-stone-800">
+              <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=700&q=80"
+                alt="Minimalist Tea Tasting Desk and Handwritten Letter" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Contact Form with STRICT VALIDATION (7 cols) -->
+          <div
+            class="lg:col-span-7 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-8 sm:p-10">
+            <form id="conciergeContactForm" novalidate class="space-y-6">
+
+              <!-- 1. NAME FIELD: Strictly blocks numbers -->
+              <div>
+                <label for="contactName"
+                  class="block text-xs font-mono uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+                  Full Name <span class="text-red-500">* (Numbers Blocked)</span>
+                </label>
+                <input type="text" id="contactName" name="name" required autocomplete="name"
+                  placeholder="e.g., Eleanor Vance"
+                  class="w-full px-4 py-3.5 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-stone-900 dark:focus:border-stone-100" />
+                <span id="nameError"
+                  class="hidden text-xs text-red-600 dark:text-red-400 font-mono mt-1.5 block"></span>
+              </div>
+
+              <!-- 2. EMAIL FIELD: Strict Regex Validation -->
+              <div>
+                <label for="contactEmail"
+                  class="block text-xs font-mono uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+                  Email Address <span class="text-red-500">* (Strict Regex Verification)</span>
+                </label>
+                <input type="email" id="contactEmail" name="email" required autocomplete="email"
+                  placeholder="e.g., sommelier@atelier.com"
+                  class="w-full px-4 py-3.5 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-stone-900 dark:focus:border-stone-100" />
+                <span id="emailError"
+                  class="hidden text-xs text-red-600 dark:text-red-400 font-mono mt-1.5 block"></span>
+              </div>
+
+              <!-- 3. PHONE FIELD: Strictly blocks letters -->
+              <div>
+                <label for="contactPhone"
+                  class="block text-xs font-mono uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+                  Telephone Number <span class="text-red-500">* (Letters Blocked)</span>
+                </label>
+                <input type="tel" id="contactPhone" name="phone" required autocomplete="tel"
+                  placeholder="e.g., +81 75 589 2144 or (415) 890-1200"
+                  class="w-full px-4 py-3.5 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-stone-900 dark:focus:border-stone-100" />
+                <span id="phoneError"
+                  class="hidden text-xs text-red-600 dark:text-red-400 font-mono mt-1.5 block"></span>
+              </div>
+
+              <!-- Inquiry Type Select -->
+              <div>
+                <label for="contactInquiryType"
+                  class="block text-xs font-mono uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+                  Nature of Consultation
+                </label>
+                <select id="contactInquiryType"
+                  class="w-full px-4 py-3.5 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-xs focus:outline-none">
+                  <option value="Private Salon Tasting Appointment">Private Salon Tasting Appointment (Kyoto or London)
+                  </option>
+                  <option value="Bespoke Botanical Blending Consultation">Bespoke Botanical Blending Consultation
+                  </option>
+                  <option value="Restaurant & Michelin Cellar Program">Restaurant & Michelin Cellar Program</option>
+                  <option value="Private Collector Vault Allocation">Private Collector Vault Allocation (Rare Pu-erh)
+                  </option>
+                  <option value="General Atelier Assistance">General Atelier Assistance</option>
+                </select>
+              </div>
+
+              <!-- Message Textarea -->
+              <div>
+                <label for="contactMessage"
+                  class="block text-xs font-mono uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+                  Dossier Notes / Inquiries <span class="text-red-500">*</span>
+                </label>
+                <textarea id="contactMessage" rows="4" required
+                  placeholder="Please specify preferred dates, varietal palates of interest, or guest party size..."
+                  class="w-full px-4 py-3 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-stone-900 dark:focus:border-stone-100"></textarea>
+                <span id="messageError"
+                  class="hidden text-xs text-red-600 dark:text-red-400 font-mono mt-1.5 block"></span>
+              </div>
+
+              <button type="submit"
+                class="w-full py-4 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                Transmit Dossier to Sommelier
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 3: FLAGSHIP TASTING ROOM & GLOBAL MAP (REAL GOOGLE MAP EMBED) -->
+    <section id="flagship-salons-map"
+      class="py-20 bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <span
+              class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Physical
+              Sanctuaries</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold">Visit Our Flagship Salons</h2>
+          </div>
+          <p class="max-w-md text-xs sm:text-sm text-stone-600 dark:text-stone-400">
+            Step off the cobblestone streets into our tranquil minimalist tea rooms for unhurried Gongfu service and
+            leaf cupping.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+
+          <!-- Realistic Formatted Addresses (5 cols) -->
+          <div class="lg:col-span-5 space-y-6">
+
+            <!-- Kyoto Salon -->
+            <div class="p-6 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800">
+              <span
+                class="text-[10px] font-mono uppercase text-emerald-700 dark:text-emerald-400 font-bold block mb-1">FLAGSHIP
+                ATELIER & CELLAR</span>
+              <h3 class="text-xl font-serif font-bold mb-3">Kyoto Sanjo Sanctuary</h3>
+              <p class="text-xs text-stone-700 dark:text-stone-300 font-mono leading-relaxed mb-4">
+                428 Sanjo-dori, Kawaramachi-Higashi,<br>
+                Nakagyo-ku, Kyoto 604-8004, Japan<br>
+                Tel: +81 75 589 2144
+              </p>
+              <div
+                class="border-t border-stone-200 dark:border-stone-800 pt-3 text-xs text-stone-500 dark:text-stone-400 space-y-1">
+                <div><strong>Hours:</strong> Tuesday &ndash; Sunday &bull; 10:00 &ndash; 19:00 JST</div>
+                <div><strong>Transit:</strong> Sanjo-Keihan Station (Exit 2, 3 min walk)</div>
+              </div>
+            </div>
+
+            <!-- London Salon -->
+            <div class="p-6 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800">
+              <span
+                class="text-[10px] font-mono uppercase text-emerald-700 dark:text-emerald-400 font-bold block mb-1">EUROPEAN
+                ATELIER</span>
+              <h3 class="text-xl font-serif font-bold mb-3">London Covent Garden Sanctuary</h3>
+              <p class="text-xs text-stone-700 dark:text-stone-300 font-mono leading-relaxed mb-4">
+                18 Floral Street, Covent Garden,<br>
+                London WC2E 9DS, United Kingdom<br>
+                Tel: +44 20 7946 0912
+              </p>
+              <div
+                class="border-t border-stone-200 dark:border-stone-800 pt-3 text-xs text-stone-500 dark:text-stone-400 space-y-1">
+                <div><strong>Hours:</strong> Monday &ndash; Saturday &bull; 10:30 &ndash; 18:30 GMT</div>
+                <div><strong>Transit:</strong> Covent Garden Tube Station (2 min walk)</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- REAL GOOGLE MAPS EMBED IFRAME (7 cols) -->
+          <div
+            class="lg:col-span-7 border border-stone-300 dark:border-stone-700 overflow-hidden bg-stone-200 dark:bg-stone-800 aspect-[16/10] sm:aspect-auto sm:h-[430px]">
+            <iframe title="Verdant Tea Atelier Kyoto Map Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.0461719266397!2d135.7680554152402!3d35.00844448035623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60010892095f9c4f%3A0x86134b4a923831d1!2sSanjo-dori%2C%20Kyoto%2C%20Japan!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
+              class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 4: PRIVATE SALON & TASTING APPOINTMENT BOOKING -->
+    <section id="private-tasting-booking"
+      class="py-20 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Private
+            Cupping Sessions</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-4">Reserve a Ceremonial Tasting Flight</h2>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400">
+            Intimate 45-minute sensory flights hosted in our sound-dampened tea chambers. Limited to four guests per
+            session to preserve meditative focus.
+          </p>
+        </div>
+
+        <!-- FIXED: Flex h-full alignments added to eliminate zig-zag -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <div
+            class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-6 sm:p-8 flex flex-col h-full">
+            <div class="flex-1 flex flex-col">
+              <span
+                class="text-xs font-mono uppercase text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">FLIGHT
+                I &bull; 45 MINS</span>
+              <h3 class="text-xl font-serif font-bold mb-3 shrink-0">Green & Matcha Awakening</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Comparative cupping of single-shaded Tenju Matcha and first-flush Uji Gyokuro brewed at three
+                temperatures (50°C, 60°C, 70°C).
+              </p>
+              <ul class="space-y-2 text-xs font-mono text-stone-500 dark:text-stone-400 mb-6 shrink-0">
+                <li>&bull; 3 Flights with Sweet Wagashi</li>
+                <li>&bull; Sommelier Cupping Card</li>
+                <li>&bull; $55 per guest</li>
+              </ul>
+            </div>
+            <a href="#concierge-form-section"
+              class="w-full text-center px-4 py-2.5 border border-stone-900 dark:border-stone-100 text-xs font-mono uppercase font-bold hover:bg-stone-900 hover:text-stone-50 dark:hover:bg-stone-100 dark:hover:text-stone-900 transition-colors mt-auto shrink-0 whitespace-nowrap">
+              Request Appointment
+            </a>
+          </div>
+
+          <div
+            class="border-2 border-stone-900 dark:border-stone-100 bg-stone-50 dark:bg-stone-900 p-6 sm:p-8 flex flex-col h-full relative">
+            <span
+              class="absolute top-0 right-0 px-2 py-0.5 text-[9px] font-mono uppercase bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900">Most
+              Revered</span>
+            <div class="flex-1 flex flex-col">
+              <span
+                class="text-xs font-mono uppercase text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">FLIGHT
+                II &bull; 60 MINS</span>
+              <h3 class="text-xl font-serif font-bold mb-3 shrink-0">Wuyi Cliff Yan Cha Journey</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Full Gongfu ceremony across six steepings of our Heritage Mother Bush Da Hong Pao and Phoenix Dan Cong
+                Honey Orchid oolong in Yixing pots.
+              </p>
+              <ul class="space-y-2 text-xs font-mono text-stone-500 dark:text-stone-400 mb-6 shrink-0">
+                <li>&bull; 6 Steepings per Varietal</li>
+                <li>&bull; Roasted Longan Fruit Pairing</li>
+                <li>&bull; $75 per guest</li>
+              </ul>
+            </div>
+            <a href="#concierge-form-section"
+              class="w-full text-center px-4 py-2.5 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-mono uppercase font-bold hover:opacity-90 transition-opacity mt-auto shrink-0 whitespace-nowrap">
+              Request Appointment
+            </a>
+          </div>
+
+          <div
+            class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-6 sm:p-8 flex flex-col h-full">
+            <div class="flex-1 flex flex-col">
+              <span
+                class="text-xs font-mono uppercase text-emerald-700 dark:text-emerald-400 font-bold block mb-1 shrink-0">FLIGHT
+                III &bull; 60 MINS</span>
+              <h3 class="text-xl font-serif font-bold mb-3 shrink-0">The Ancient Pu-erh Vault</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-6 flex-1">
+                Rare cellar exploration comparing 1998 Aged Ripe Menghai with 2006 Wild Arbor Raw Sheng cakes retrieved
+                directly from our climate vaults.
+              </p>
+              <ul class="space-y-2 text-xs font-mono text-stone-500 dark:text-stone-400 mb-6 shrink-0">
+                <li>&bull; 28-Year Fermentation Vintage</li>
+                <li>&bull; Ancient Wood & Jujube Notes</li>
+                <li>&bull; $95 per guest</li>
+              </ul>
+            </div>
+            <a href="#concierge-form-section"
+              class="w-full text-center px-4 py-2.5 border border-stone-900 dark:border-stone-100 text-xs font-mono uppercase font-bold hover:bg-stone-900 hover:text-stone-50 dark:hover:bg-stone-100 dark:hover:text-stone-900 transition-colors mt-auto shrink-0 whitespace-nowrap">
+              Request Appointment
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 5: WHOLESALE, HOSPITALITY & PRESS INQUIRIES -->
+    <section id="trade-hospitality-partnerships"
+      class="py-20 bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span
+              class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Hospitality
+              & Wholesale</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-6">Trade & Hospitality Partnerships</h2>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              We supply single-origin loose leaf harvests and ceremonial matcha to Michelin three-star restaurants,
+              luxury hotel spas, and executive salons worldwide.
+            </p>
+
+            <div class="space-y-4 text-xs font-mono mb-8">
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E]">
+                <strong class="text-stone-900 dark:text-stone-100 block mb-1">Custom Dining Cellar Curation</strong>
+                <span class="text-stone-500 dark:text-stone-400">Tailored multi-course non-alcoholic tea pairings
+                  matching seasonal tasting menus.</span>
+              </div>
+              <div class="p-4 border border-stone-200 dark:border-stone-800 bg-[#FAF9F5] dark:bg-[#0B120E]">
+                <strong class="text-stone-900 dark:text-stone-100 block mb-1">Sommelier Staff Training</strong>
+                <span class="text-stone-500 dark:text-stone-400">On-site Gongfu water chemistry and tableside service
+                  certification for service captains.</span>
+              </div>
+            </div>
+
+            <a href="mailto:trade@verdanttea.com"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 text-xs font-semibold uppercase tracking-widest hover:opacity-90">
+              Download Wholesale Dossier (PDF) &rarr;
+            </a>
+          </div>
+
+          <div class="relative aspect-square border border-stone-200 dark:border-stone-800">
+            <!-- FIXED: Enforced object-cover -->
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=80"
+              alt="Hospitality Tea Service Display at Luxury Restaurant" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTAINER 6: FREQUENTLY ASKED QUESTIONS (FAQ ACCORDIONS) -->
+    <section id="faq-accordion-section"
+      class="py-20 bg-[#FAF9F5] dark:bg-[#0B120E] border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-16">
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-2">Curator
+            Insights</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-3">Frequently Asked Questions</h2>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400">Essential guidance on storage, aging
+            potential, temperature shipping, and terroir purity.</p>
+        </div>
+
+        <div class="space-y-4">
+
+          <!-- FAQ 1 -->
+          <div class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+            <button type="button" aria-expanded="false"
+              class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">How should I store my
+                loose leaf tea to preserve peak freshness?</span>
+              <span
+                class="faq-icon text-xl font-mono text-stone-500 dark:text-stone-400 transition-transform duration-200 flex-shrink-0">&plus;</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-6 text-xs text-stone-600 dark:text-stone-400 leading-relaxed border-t border-stone-200 dark:border-stone-800 pt-4">
+              Store loose leaf teas in an airtight, opaque container away from light, heat, moisture, and strong kitchen
+              aromas. Green teas and Matcha benefit from refrigeration in a sealed container, while Aged Pu-erhs and
+              Oolongs should be kept at stable room temperature (18°C–22°C) with moderate humidity.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+            <button type="button" aria-expanded="false"
+              class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">What is the shelf life
+                of green tea versus aged Pu-erh cakes?</span>
+              <span
+                class="faq-icon text-xl font-mono text-stone-500 dark:text-stone-400 transition-transform duration-200 flex-shrink-0">&plus;</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-6 text-xs text-stone-600 dark:text-stone-400 leading-relaxed border-t border-stone-200 dark:border-stone-800 pt-4">
+              Delicate green teas (Sencha, Gyokuro) and Matcha are best consumed within 6 to 12 months of harvest to
+              enjoy their fresh grassy chlorophyll. Conversely, Wuyi Rock Oolongs and compressed Pu-erhs have no
+              expiration date; they gain depth, smoothness, and value over 20 to 30 years of careful aging.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+            <button type="button" aria-expanded="false"
+              class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">How does
+                temperature-controlled shipping work during summer months?</span>
+              <span
+                class="faq-icon text-xl font-mono text-stone-500 dark:text-stone-400 transition-transform duration-200 flex-shrink-0">&plus;</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-6 text-xs text-stone-600 dark:text-stone-400 leading-relaxed border-t border-stone-200 dark:border-stone-800 pt-4">
+              During transit above 25°C, all delicate spring green teas and ceremonial matcha tins are dispatched in
+              insulated thermal sleeves with eco-friendly chilling packs to prevent heat oxidation in parcel depots.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+            <button type="button" aria-expanded="false"
+              class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">Are your single-origin
+                teas certified organic and pesticide-free?</span>
+              <span
+                class="faq-icon text-xl font-mono text-stone-500 dark:text-stone-400 transition-transform duration-200 flex-shrink-0">&plus;</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-6 text-xs text-stone-600 dark:text-stone-400 leading-relaxed border-t border-stone-200 dark:border-stone-800 pt-4">
+              Yes. 100% of our mountain partners are certified under JAS (Japan Agricultural Standards), USDA Organic,
+              or EU Bio certifications. In addition, each import lot undergoes independent GC-MS laboratory testing for
+              heavy metals and pesticide residue before vault release.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+            <button type="button" aria-expanded="false"
+              class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">Can I steep your whole
+                loose leaves multiple times?</span>
+              <span
+                class="faq-icon text-xl font-mono text-stone-500 dark:text-stone-400 transition-transform duration-200 flex-shrink-0">&plus;</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-6 text-xs text-stone-600 dark:text-stone-400 leading-relaxed border-t border-stone-200 dark:border-stone-800 pt-4">
+              Emphatically yes. Unbroken whole leaf tea contains multiple layers of essential oils. Using the Gongfu
+              brewing method (high leaf, small water, short steeps), our Wuyi Oolongs and Pu-erh yield 8 to 12 distinct
+              infusions, each revealing unique floral and mineral transitions.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+            <button type="button" aria-expanded="false"
+              class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+              <span class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">What is your return
+                policy for rare vintage lots?</span>
+              <span
+                class="faq-icon text-xl font-mono text-stone-500 dark:text-stone-400 transition-transform duration-200 flex-shrink-0">&plus;</span>
+            </button>
+            <div
+              class="faq-content hidden px-6 pb-6 text-xs text-stone-600 dark:text-stone-400 leading-relaxed border-t border-stone-200 dark:border-stone-800 pt-4">
+              Unopened tins with the nitrogen seal intact may be returned within 30 days of receipt for an atelier
+              credit or exchange. For opened rare vintage Pu-erhs, our resident sommelier will conduct a personal
+              cupping consultation to assist your brewing technique.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+ <footer class="bg-[#FAF9F5] dark:bg-[#0B120E] border-t border-stone-200 dark:border-stone-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+
+        <!-- Brand Info & Logo linking to index.html -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3 group focus:outline-none"
+            aria-label="Return to Verdant Home">
+            <div
+              class="w-10 h-10 border border-stone-900 dark:border-stone-100 flex items-center justify-center bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex-shrink-0">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                  d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-2xl font-bold tracking-widest uppercase brand-heading">VERDANT</span>
+              <span
+                class="text-[9px] tracking-[0.25em] font-mono uppercase text-stone-500 dark:text-stone-400 -mt-1">SPECIALTY
+                TEA ATELIER</span>
+            </div>
+          </a>
+
+          <p class="text-xs text-stone-600 dark:text-stone-400 max-w-sm leading-relaxed">
+            Preserving single-origin terroir, ancestral agro-forestry, and the meditative mindfulness of the loose leaf
+            tea ceremony since 1892.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Follow on X (Twitter)" aria-label="X (formerly Twitter)">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Follow on Instagram" aria-label="Instagram">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Follow on LinkedIn" aria-label="LinkedIn">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+              class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+              title="Watch on YouTube" aria-label="YouTube">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">The
+            Atelier</span>
+          <ul class="space-y-2.5 text-xs text-stone-600 dark:text-stone-400 font-medium">
+            <li><a href="index.html" class="hover:underline">Home - Signature Blends</a></li>
+            <li><a href="home-origins.html" class="hover:underline">Home - Tea Origins</a></li>
+            <li><a href="about.html" class="hover:underline">About Atelier Heritage</a></li>
+            <li><a href="products.html" class="hover:underline">Products Catalog</a></li>
+            <li><a href="brewing-guide.html" class="hover:underline">Interactive Brewing Guide</a></li>
+            <li><a href="contact.html" class="hover:underline">Contact & Salon Map</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">Terroir
+            Vault</span>
+          <ul class="space-y-2.5 text-xs text-stone-600 dark:text-stone-400 font-medium">
+            <li><span class="text-stone-800 dark:text-stone-200">Uji, Kyoto</span> (Gyokuro & Matcha)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Wuyi Mountains</span> (Rock Oolongs)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Darjeeling</span> (Castleton First Flush)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Fuding, Fujian</span> (Silver Needle)</li>
+            <li><span class="text-stone-800 dark:text-stone-200">Menghai, Yunnan</span> (Aged Pu-erh)</li>
+          </ul>
+        </div>
+
+        <div>
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">Flagship
+            Salons</span>
+          <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-3">
+            <strong class="text-stone-800 dark:text-stone-200">Kyoto Atelier:</strong><br>
+            428 Sanjo-dori, Nakagyo-ku, Kyoto 604-8004
+          </p>
+          <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+            <strong class="text-stone-800 dark:text-stone-200">London Sanctuary:</strong><br>
+            18 Floral St, Covent Garden, London WC2E 9DS
+          </p>
+        </div>
+
+      </div>
+
+      <div
+        class="pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 dark:text-stone-400 font-mono gap-4">
+        <div>&copy; 2026 Verdant Specialty Tea Atelier. All Rights Reserved.</div>
+        <div class="flex items-center gap-6">
+          <span>Zero Gradients &bull; Pure Minimalist Flat Design</span>
+          <span>Deployable on Vercel</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+
+</html>
