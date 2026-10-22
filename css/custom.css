@@ -3,16 +3,17 @@
    Aesthetics: Ultra-luxury, aromatic, calming, neat, clean, high-contrast.
    Strict rules: NO gradients, NO glassmorphism, NO neumorphism.
    Headings: Every H1, H2, H3, H4, H5, H6 MUST have the exact same color.
+   Typography: STRICTLY clean, modern, default professional system sans-serif fonts.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-
 :root {
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* PROFESSIONAL DEFAULT SYSTEM FONT STACK - NO OLD-STYLE SERIF OR MONOSPACE */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   
   /* CRITICAL DIRECTIVE: UNIFIED HEADING COLOR ACROSS ENTIRE PROJECT */
-  --heading-color-light: #fbfbfb;
+  --heading-color-light: #0A1910;
   --heading-color-dark: #F8FAF7;
   
   /* Backgrounds & Surfaces (Flat, Solid, Sharp) */
@@ -43,9 +44,11 @@ html {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  font-family: var(--font-sans);
   background-color: var(--bg-primary-light);
   color: var(--text-body-light);
   overflow-x: hidden;
@@ -57,20 +60,29 @@ html.dark body {
   color: var(--text-body-dark);
 }
 
+/* Force all font classes to use clean professional default sans font */
+.font-serif,
+.font-mono,
+.font-sans {
+  font-family: var(--font-sans) !important;
+}
+
 /* ==========================================================================
    CRITICAL REQUIREMENT: EXACT SAME HEADING COLOR FOR EVERY H1, H2, H3, H4, H5, H6
    ========================================================================== */
 h1, h2, h3, h4, h5, h6,
-.h1, , .h3, .h4, .h5, .h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.brand-heading,
 .uniform-heading {
-  color: #ffffff !important;
-  font-family: var(--font-serif);
-  letter-spacing: -0.015em;
+  color: #0A1910 !important;
+  font-family: var(--font-sans) !important;
+  letter-spacing: -0.02em;
+  font-weight: 700;
   font-feature-settings: "kern" 1, "liga" 1;
 }
 
 html.dark h1,
-/* html.dark h2, */
+html.dark h2,
 html.dark h3,
 html.dark h4,
 html.dark h5,
@@ -81,7 +93,18 @@ html.dark .h3,
 html.dark .h4,
 html.dark .h5,
 html.dark .h6,
+html.dark .brand-heading,
 html.dark .uniform-heading {
+  color: #F8FAF7 !important;
+}
+
+/* Dark sections & hero sections must have bright white headings for 100% contrast */
+.bg-stone-950 h1, .bg-stone-950 h2, .bg-stone-950 h3, .bg-stone-950 h4,
+.bg-stone-900 h1, .bg-stone-900 h2, .bg-stone-900 h3, .bg-stone-900 h4,
+.bg-black h1, .bg-black h2, .bg-black h3, .bg-black h4,
+.dark-section h1, .dark-section h2, .dark-section h3, .dark-section h4,
+[id^="hero-"] h1, [id^="hero-"] h2, [id^="hero-"] h3,
+.hero-heading {
   color: #F8FAF7 !important;
 }
 

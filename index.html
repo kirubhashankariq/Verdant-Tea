@@ -20,8 +20,9 @@
       theme: {
         extend: {
           fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            serif: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            mono: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
           },
           colors: {
             botanical: {
@@ -54,7 +55,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
       <div class="flex items-center justify-between h-20">
 
-        <!-- Brand Logo & Name -->
+        <!-- Brand Logo & Name (Only Logo & Brand Name, No Subtitle Text) -->
         <a href="index.html" class="flex items-center gap-2.5 xl:gap-3 group focus:outline-none flex-shrink-0"
           aria-label="Verdant Tea Atelier Home">
           <div
@@ -65,13 +66,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
             </svg>
           </div>
-          <div class="flex flex-col whitespace-nowrap">
-            <span
-              class="font-serif text-lg xl:text-2xl font-bold tracking-wider xl:tracking-widest uppercase brand-heading">VERDANT</span>
-            <span
-              class="text-[8px] xl:text-[9px] tracking-[0.2em] xl:tracking-[0.25em] font-mono uppercase text-stone-500 dark:text-stone-400 -mt-1">TEA
-              ATELIER &bull; EST. 1892</span>
-          </div>
+          <span
+            class="font-serif text-xl xl:text-2xl font-bold tracking-widest uppercase brand-heading">VERDANT</span>
         </a>
 
         <!-- Desktop Navigation Links -->
@@ -79,7 +75,7 @@
           <!-- Home Dropdown -->
           <div class="relative group dropdown-container" id="homeDropdownContainer">
             <button type="button" id="homeDropdownBtn"
-              class="flex items-center gap-1 text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest font-semibold border-b-2 border-stone-900 dark:border-stone-100 py-1 text-stone-900 dark:text-stone-100 whitespace-nowrap focus:outline-none"
+              class="flex items-center gap-1.5 text-xs uppercase tracking-wider xl:tracking-widest font-semibold border-b-2 border-stone-900 dark:border-stone-100 py-1 text-stone-900 dark:text-stone-100 whitespace-nowrap focus:outline-none"
               aria-expanded="false" aria-haspopup="true">
               <span>Home</span>
               <svg class="w-3.5 h-3.5 stroke-current transition-transform duration-200 dropdown-chevron" fill="none"
@@ -88,20 +84,16 @@
               </svg>
             </button>
             <div id="homeDropdownMenu"
-              class="absolute top-full left-0 mt-2 w-64 bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 shadow-xl py-2 hidden group-hover:block transition-all z-50">
+              class="absolute top-full left-0 mt-2 w-80 min-w-[320px] bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-300 dark:border-stone-700 shadow-none py-2 hidden group-hover:block transition-all z-50">
               <a href="index.html"
-                class="flex flex-col px-4 py-2.5 bg-stone-100 dark:bg-stone-900 border-b border-stone-100 dark:border-stone-800/50">
-                <span class="text-xs font-semibold uppercase tracking-wider text-stone-900 dark:text-stone-100">Home 1:
-                  Signature Blends &bull; Current</span>
-                <span class="text-[10px] font-mono text-stone-500 dark:text-stone-400 mt-0.5">Classic Atelier Catalog &
-                  Samplers</span>
+                class="block px-5 py-3 bg-stone-100 dark:bg-stone-900/90 border-b border-stone-200 dark:border-stone-800 transition-colors">
+                <span class="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 block">Home 1: Signature Blends &bull; Current</span>
+                <span class="text-[11px] text-stone-500 dark:text-stone-400 mt-0.5 block leading-normal">Classic Atelier Catalog & Samplers</span>
               </a>
               <a href="home-origins.html"
-                class="flex flex-col px-4 py-2.5 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors">
-                <span class="text-xs font-semibold uppercase tracking-wider text-stone-900 dark:text-stone-100">Home 2:
-                  Tea Origins</span>
-                <span class="text-[10px] font-mono text-stone-500 dark:text-stone-400 mt-0.5">Single Terroirs & Mountain
-                  Almanac</span>
+                class="block px-5 py-3 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors">
+                <span class="text-xs font-semibold uppercase tracking-wider text-stone-900 dark:text-stone-100 block">Home 2: Tea Origins</span>
+                <span class="text-[11px] text-stone-500 dark:text-stone-400 mt-0.5 block leading-normal">Single Terroirs & Mountain Almanac</span>
               </a>
             </div>
           </div>
@@ -113,6 +105,8 @@
           <a href="brewing-guide.html"
             class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">Brewing
             Guide</a>
+          <a href="blog.html"
+            class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">Blog</a>
           <a href="contact.html"
             class="text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-widest text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 py-1 transition-colors whitespace-nowrap">Contact</a>
         </nav>
@@ -196,15 +190,16 @@
 
     <!-- Drawer Header -->
     <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2.5">
         <div
-          class="w-8 h-8 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex items-center justify-center">
+          class="w-8 h-8 border border-stone-900 dark:border-stone-100 bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex items-center justify-center">
           <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
               d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
           </svg>
         </div>
-        <span class="font-serif text-lg font-bold uppercase tracking-wider brand-heading">VERDANT MENU</span>
+        <span class="font-serif text-lg font-bold tracking-widest uppercase brand-heading">VERDANT</span>
       </div>
       <button id="mobileMenuCloseBtn" type="button"
         class="p-2 border border-stone-300 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-800"
@@ -252,6 +247,11 @@
       <a href="brewing-guide.html"
         class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
         <span>Brewing Guide</span>
+        <span class="text-xs font-mono">&rarr;</span>
+      </a>
+      <a href="blog.html"
+        class="flex items-center justify-between py-3 px-4 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-sm uppercase tracking-wider transition-colors">
+        <span>Blog</span>
         <span class="text-xs font-mono">&rarr;</span>
       </a>
       <a href="contact.html"
@@ -338,22 +338,21 @@
   <main>
 
     <!-- CONTAINER 1: HERO SECTION -->
-    <!-- REVERTED: object-cover restored so the image fills the screen side-to-side -->
     <section id="hero-signature"
-      class="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-stone-200 dark:border-stone-800 bg-stone-950">
+      class="relative min-h-[65vh] flex items-center justify-center overflow-hidden border-b border-stone-200 dark:border-stone-800 bg-stone-950">
       <!-- Background Image -->
       <img src="https://i.pinimg.com/1200x/a2/fe/3c/a2fe3cc3ab1091ecd50d8206e2a9a636.jpg"
         alt="Specialty Loose Leaf Tea Ceremony Pouring"
         class="absolute inset-0 w-full h-full object-cover object-center" />
 
       <!-- Simple Dark Overlay for 100% Guaranteed Image & Text Visibility -->
-      <div class="absolute inset-0 bg-stone-900/50 transition-colors"></div>
+      <div class="absolute inset-0 bg-stone-900/60 transition-colors"></div>
 
       <!-- Hero Content - ALL TEXT FORCED TO CENTER & HIGH CONTRAST (LIGHT TEXT) -->
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center z-10 w-full">
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center z-10 w-full">
 
         <div
-          class="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 bg-stone-950/80 text-stone-100 text-[11px] font-mono uppercase tracking-widest mb-6 border border-stone-700 mx-auto">
+          class="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 bg-stone-950/80 text-stone-100 text-xs uppercase tracking-widest font-semibold mb-6 border border-stone-700 mx-auto">
           <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
           Spring 2026 Reserve Harvest Now Available
         </div>
@@ -381,14 +380,14 @@
 
         <!-- Metric Badges Strip Centered -->
         <div
-          class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-stone-400/30 text-stone-200 font-mono text-xs text-center mx-auto">
-          <div class="text-center"><span class="block text-xl font-bold font-serif text-stone-50 mb-1">100%</span>
+          class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-stone-400/30 text-stone-200 text-xs text-center mx-auto">
+          <div class="text-center"><span class="block text-xl font-bold text-stone-50 mb-1">100%</span>
             Single-Estate Terroir</div>
-          <div class="text-center"><span class="block text-xl font-bold font-serif text-stone-50 mb-1">2,200m</span>
+          <div class="text-center"><span class="block text-xl font-bold text-stone-50 mb-1">2,200m</span>
             Peak Mountain Elevations</div>
-          <div class="text-center"><span class="block text-xl font-bold font-serif text-stone-50 mb-1">0%</span>
+          <div class="text-center"><span class="block text-xl font-bold text-stone-50 mb-1">0%</span>
             Artificial Flavorings</div>
-          <div class="text-center"><span class="block text-xl font-bold font-serif text-stone-50 mb-1">24hr</span> Cold
+          <div class="text-center"><span class="block text-xl font-bold text-stone-50 mb-1">24hr</span> Cold
             Nitrogen Sealing</div>
         </div>
       </div>
@@ -725,7 +724,7 @@
 
           <div
             class="relative aspect-square border border-stone-300 dark:border-stone-700 bg-stone-200 dark:bg-stone-800">
-            <img src="https://i.pinimg.com/736x/08/ab/8e/08ab8e91ceb741f976733e0497f6b458.jpg"
+            <img src="https://images.pexels.com/photos/4390022/pexels-photo-4390022.jpeg"
               alt="Botanical Loose Tea Herbs and Spices Architecture" class="w-full h-full object-cover" />
             <div class="absolute bottom-6 left-6 right-6 p-4 bg-stone-950/85 text-stone-100 border border-stone-700">
               <span class="text-[10px] font-mono uppercase tracking-widest text-emerald-400 block mb-1">Atelier
@@ -862,7 +861,7 @@
             <div
               class="bg-[#FAF9F5] dark:bg-[#0B120E] border border-stone-200 dark:border-stone-800 p-6 flex flex-col h-full">
               <div class="aspect-[4/3] overflow-hidden mb-4 bg-stone-200 dark:bg-stone-800 shrink-0">
-                <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=700&q=80"
+                <img src="https://images.pexels.com/photos/6769516/pexels-photo-6769516.jpeg"
                   alt="Porcelain Gaiwan Tea Ceremony Cup" class="w-full h-full object-cover" />
               </div>
               <div class="flex-1 flex flex-col">
@@ -915,9 +914,12 @@
                 and sustained umami broth transform our end-of-meal pairing ritual."
               </p>
             </div>
-            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 font-mono text-xs mt-auto shrink-0">
-              <span class="font-bold block text-stone-900 dark:text-stone-100">Chef Jean-Luc Moreau</span>
-              <span class="text-stone-500 dark:text-stone-400">Three-Star Michelin Sommelier, Paris</span>
+            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3.5 mt-auto shrink-0">
+              <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=200&h=200&q=80" alt="Chef Jean-Luc Moreau" class="w-11 h-11 rounded-full object-cover border border-stone-300 dark:border-stone-700 shrink-0" />
+              <div class="text-xs">
+                <span class="font-bold block text-stone-900 dark:text-stone-100">Chef Jean-Luc Moreau</span>
+                <span class="text-stone-500 dark:text-stone-400">Three-Star Michelin Sommelier, Paris</span>
+              </div>
             </div>
           </div>
 
@@ -930,9 +932,12 @@
                 Their Da Hong Pao possesses the authentic rock rhyme of 100-year-old bushes."
               </p>
             </div>
-            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 font-mono text-xs mt-auto shrink-0">
-              <span class="font-bold block text-stone-900 dark:text-stone-100">Master S. Tanaka</span>
-              <span class="text-stone-500 dark:text-stone-400">Urasenke Tea School Master, Kyoto</span>
+            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3.5 mt-auto shrink-0">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80" alt="Master S. Tanaka" class="w-11 h-11 rounded-full object-cover border border-stone-300 dark:border-stone-700 shrink-0" />
+              <div class="text-xs">
+                <span class="font-bold block text-stone-900 dark:text-stone-100">Master S. Tanaka</span>
+                <span class="text-stone-500 dark:text-stone-400">Urasenke Tea School Master, Kyoto</span>
+              </div>
             </div>
           </div>
 
@@ -945,9 +950,12 @@
                 restoring reverence and integrity to specialty loose leaf tea."
               </p>
             </div>
-            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 font-mono text-xs mt-auto shrink-0">
-              <span class="font-bold block text-stone-900 dark:text-stone-100">Eleanor Vance</span>
-              <span class="text-stone-500 dark:text-stone-400">Author of 'The Sacred Leaf', London</span>
+            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3.5 mt-auto shrink-0">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80" alt="Eleanor Vance" class="w-11 h-11 rounded-full object-cover border border-stone-300 dark:border-stone-700 shrink-0" />
+              <div class="text-xs">
+                <span class="font-bold block text-stone-900 dark:text-stone-100">Eleanor Vance</span>
+                <span class="text-stone-500 dark:text-stone-400">Author of 'The Sacred Leaf', London</span>
+              </div>
             </div>
           </div>
 
@@ -957,19 +965,18 @@
     </section>
 
     <!-- CONTAINER 8: NEWSLETTER & PRIVATE SALON INVITATION -->
-    <!-- REVERTED: object-cover restored for the wide footer background -->
     <section id="newsletter-salon-invite"
-      class="py-20 bg-stone-950 text-stone-100 border-b border-stone-800 relative overflow-hidden">
+      class="py-20 bg-stone-950 text-stone-100 border-b border-stone-800 relative overflow-hidden dark-section">
       <!-- Background Image -->
       <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80"
         alt="Warm Contemplative Tea Cup Setting" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-      <div class="absolute inset-0 bg-stone-950/80"></div>
+      <div class="absolute inset-0 bg-stone-950/90"></div>
 
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 block mb-3">By Invitation &
+        <span class="text-xs uppercase tracking-widest text-emerald-400 font-semibold block mb-3">By Invitation &
           Reservation</span>
-        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-stone-100 mb-6">Join The Reserve Circle</h2>
-        <p class="max-w-xl mx-auto text-xs sm:text-sm text-stone-300 mb-10 leading-relaxed font-light">
+        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-stone-50 mb-6 drop-shadow-sm">Join The Reserve Circle</h2>
+        <p class="max-w-xl mx-auto text-sm text-stone-200 mb-10 leading-relaxed font-normal">
           Receive private notifications 48 hours prior to our seasonal micro-lot drops, invitations to private Kyoto
           cupping sessions, and our quarterly botanical journal.
         </p>
@@ -983,7 +990,7 @@
           </button>
         </form>
 
-        <p class="text-[10px] text-stone-500 font-mono mt-4">We guard your privacy with uncompromising integrity.
+        <p class="text-xs text-stone-300 mt-4">We guard your privacy with uncompromising integrity.
           Unsubscribe at any time.</p>
       </div>
     </section>
@@ -1003,19 +1010,14 @@
           <a href="index.html" class="flex items-center gap-3 group focus:outline-none"
             aria-label="Return to Verdant Home">
             <div
-              class="w-10 h-10 border border-stone-900 dark:border-stone-100 flex items-center justify-center bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex-shrink-0">
+              class="w-10 h-10 border border-stone-900 dark:border-stone-100 flex items-center justify-center bg-stone-900 text-stone-50 dark:bg-stone-100 dark:text-stone-900 flex-shrink-0 transition-transform group-hover:scale-95">
               <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
                   d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 4.418-8.94 8-11 3.582 2.06 8 6.582 8 11 0 4.418-3.582 8-8 8z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21V9" />
               </svg>
             </div>
-            <div class="flex flex-col">
-              <span class="font-serif text-2xl font-bold tracking-widest uppercase brand-heading">VERDANT</span>
-              <span
-                class="text-[9px] tracking-[0.25em] font-mono uppercase text-stone-500 dark:text-stone-400 -mt-1">SPECIALTY
-                TEA ATELIER</span>
-            </div>
+            <span class="font-serif text-2xl font-bold tracking-widest uppercase brand-heading">VERDANT</span>
           </a>
 
           <p class="text-xs text-stone-600 dark:text-stone-400 max-w-sm leading-relaxed">
@@ -1069,20 +1071,21 @@
             <li><a href="about.html" class="hover:underline">About Atelier Heritage</a></li>
             <li><a href="products.html" class="hover:underline">Products Catalog</a></li>
             <li><a href="brewing-guide.html" class="hover:underline">Interactive Brewing Guide</a></li>
+            <li><a href="blog.html" class="hover:underline">Blog - Terroir Gazette</a></li>
             <li><a href="contact.html" class="hover:underline">Contact & Salon Map</a></li>
           </ul>
         </div>
 
         <div>
           <span
-            class="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 block mb-4">Terroir
+            class="text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 font-semibold block mb-4">Terroir
             Vault</span>
           <ul class="space-y-2.5 text-xs text-stone-600 dark:text-stone-400 font-medium">
-            <li><span class="text-stone-800 dark:text-stone-200">Uji, Kyoto</span> (Gyokuro & Matcha)</li>
-            <li><span class="text-stone-800 dark:text-stone-200">Wuyi Mountains</span> (Rock Oolongs)</li>
-            <li><span class="text-stone-800 dark:text-stone-200">Darjeeling</span> (Castleton First Flush)</li>
-            <li><span class="text-stone-800 dark:text-stone-200">Fuding, Fujian</span> (Silver Needle)</li>
-            <li><span class="text-stone-800 dark:text-stone-200">Menghai, Yunnan</span> (Aged Pu-erh)</li>
+            <li><a href="products.html?category=green" class="hover:underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors"><strong class="text-stone-800 dark:text-stone-200 font-semibold">Uji, Kyoto</strong> &mdash; Gyokuro &amp; Matcha</a></li>
+            <li><a href="products.html?category=oolong" class="hover:underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors"><strong class="text-stone-800 dark:text-stone-200 font-semibold">Wuyi Mountains</strong> &mdash; Rock Oolongs</a></li>
+            <li><a href="products.html?category=black" class="hover:underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors"><strong class="text-stone-800 dark:text-stone-200 font-semibold">Darjeeling</strong> &mdash; Castleton First Flush</a></li>
+            <li><a href="products.html?category=white-puerh" class="hover:underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors"><strong class="text-stone-800 dark:text-stone-200 font-semibold">Fuding, Fujian</strong> &mdash; Silver Needle</a></li>
+            <li><a href="products.html?category=white-puerh" class="hover:underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors"><strong class="text-stone-800 dark:text-stone-200 font-semibold">Menghai, Yunnan</strong> &mdash; Aged Pu-erh</a></li>
           </ul>
         </div>
 

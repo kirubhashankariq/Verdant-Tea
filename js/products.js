@@ -77,7 +77,7 @@
       reviews: 29,
       notes: ['Silver Hay', 'White Melon', 'Wild Clover Honey'],
       description: 'Exclusively plump unopened spring buds covered in downy silver trichomes. Gently sun-withered without pan-firing or rolling for ethereal delicacy.',
-      image: 'https://images.unsplash.com/photo-1579888944880-d98341245702?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/33489605/pexels-photo-33489605.jpeg',
       badge: 'Buds Only'
     },
     {
@@ -94,7 +94,7 @@
       reviews: 84,
       notes: ['Golden Apple', 'Calming Lavender', 'Honey Nectar'],
       description: 'Whole unbroken Matricaria chamomile flower heads hand-blended with high-altitude Provencal culinary lavender. Naturally 100% caffeine-free.',
-      image: 'https://images.unsplash.com/photo-1531973968078-9bb02785f13d?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.pexels.com/photos/27385918/pexels-photo-27385918.jpeg',
       badge: 'Caffeine-Free'
     },
     {
@@ -248,6 +248,23 @@
         currentSort = e.target.value;
         renderGrid();
       });
+    }
+
+    // Auto-select category if URL param present (e.g. products.html?category=green)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('category');
+      if (catParam) {
+        const matchingBtn = Array.from(filterButtons).find(b => {
+          const c = b.getAttribute('data-category');
+          return c === catParam || (catParam === 'puerh' && c === 'white-puerh') || (catParam === 'white' && c === 'white-puerh');
+        });
+        if (matchingBtn) {
+          matchingBtn.click();
+        }
+      }
+    } catch (e) {
+      // fallback
     }
 
     renderGrid();
