@@ -128,7 +128,7 @@
       reviews: 67,
       notes: ['Silky Cream', 'Pistachio Note', 'Sweet Chlorophyll'],
       description: 'Tencha leaves slow-milled by rotating granite stones at 30g per hour. Yields a micro-fine powder that whisks into a dense emerald crema with zero astringency.',
-      image: 'https://i.pinimg.com/1200x/85/1e/63/851e636bb78f6b387e221ab747990a21.jpg',
+      image: 'https://images.pexels.com/photos/34967000/pexels-photo-34967000.jpeg',
       badge: 'Stone-Milled'
     },
     {
@@ -179,7 +179,7 @@
       reviews: 52,
       notes: ['Crisp Menthol', 'Elderflower Citrus', 'Sweet Thyme'],
       description: 'A soothing restorative infusion of intense mountain peppermint infused with delicate muscat-scented wild elderflower blossoms.',
-      image: 'https://i.pinimg.com/736x/a2/44/b3/a244b391fb6692eff50a7f1f5b1f2d49.jpg',
+      image: 'https://images.pexels.com/photos/33789289/pexels-photo-33789289.jpeg',
       badge: 'Wild-Harvested'
     },
     {
@@ -196,7 +196,7 @@
       reviews: 26,
       notes: ['Night Jasmine', 'Cantaloupe', 'Aged Cedar'],
       description: 'Plucked exclusively under evening conditions and withered in shaded caves without sunlight. The top of the leaf turns black while the underside remains silver white.',
-      image: 'https://i.pinimg.com/236x/73/c0/a5/73c0a59a3813b58a01956fdf6929877e.jpg',
+      image: 'https://images.pexels.com/photos/1717772/pexels-photo-1717772.jpeg',
       badge: 'Night Harvest'
     },
     {
@@ -213,7 +213,7 @@
       reviews: 49,
       notes: ['Dark Chocolate', 'Baked Yam', 'Golden Honeycomb'],
       description: 'Hand-plucked one-leaf, one-bud tips dense with golden fleece down. Breeds a full-bodied, velvety brew free from bitterness with natural sweet chocolate notes.',
-      image: 'https://i.pinimg.com/736x/b0/d5/c3/b0d5c34737f9d0afe63de4cc22d17068.jpg',
+      image: 'https://images.pexels.com/photos/6962415/pexels-photo-6962415.jpeg',
       badge: 'Golden Tips'
     }
   ];
